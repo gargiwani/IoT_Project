@@ -17,3 +17,11 @@ mqttclient = mqtt.Client()
 mqttclient.on_connect = on_connect
 mqttclient.on_message = on_message
 mqttclient.on_disconnect = on_disconnect
+
+mqttclient.connect(brokerURL, brokerPort) #call connect function with URL and port number
+
+mqttclient.publish("ProIT_IoT/Gargi","It works!")
+
+mqttclient.subscribe("ProIT_IoT/#")
+
+mqttclient.loop_start()
