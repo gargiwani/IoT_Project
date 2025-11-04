@@ -1,0 +1,1002 @@
+[
+    {
+        "id": "74e0b9721ac394dd",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "a22bd6497ead84fb",
+        "type": "group",
+        "z": "74e0b9721ac394dd",
+        "name": "First steps in node red",
+        "style": {
+            "label": true
+        },
+        "nodes": [
+            "d7e418f15a89b8af",
+            "b9ad4184acd610b0",
+            "3b92996429f3435d",
+            "307681e526c57c3a",
+            "ba0dce9beec6f617",
+            "b5286d58b884d31e",
+            "1ac551ae2b2d59fe",
+            "0d373f888c622e20"
+        ],
+        "x": 14,
+        "y": 99,
+        "w": 452,
+        "h": 322
+    },
+    {
+        "id": "c4d2f632b3002f69",
+        "type": "group",
+        "z": "74e0b9721ac394dd",
+        "name": "All Temperature",
+        "style": {
+            "label": true
+        },
+        "nodes": [
+            "3cecba46ee7f8804",
+            "678da3e05c43d17b",
+            "213a401098c54d8e",
+            "7832292b51e6c001"
+        ],
+        "x": 14,
+        "y": 479,
+        "w": 532,
+        "h": 222
+    },
+    {
+        "id": "c8e58de4510d7552",
+        "type": "group",
+        "z": "74e0b9721ac394dd",
+        "name": "My Data",
+        "style": {
+            "stroke": "#ffC000",
+            "label": true,
+            "label-position": "n",
+            "color": "#777777"
+        },
+        "nodes": [
+            "57600c589f377048",
+            "56bdd5cddd223195",
+            "9862f8f196e75461",
+            "e64a1b16ffe5343c",
+            "d09564b843e880c2",
+            "c276892e226c77ee"
+        ],
+        "x": 514,
+        "y": 119,
+        "w": 492,
+        "h": 262
+    },
+    {
+        "id": "78024a06b9b5bc2a",
+        "type": "group",
+        "z": "74e0b9721ac394dd",
+        "name": "Humidity",
+        "style": {
+            "label": true
+        },
+        "nodes": [
+            "318c7a858f2505e7",
+            "d221b797e94423e1",
+            "50b8304819b13260",
+            "49034b6ae3637049"
+        ],
+        "x": 554,
+        "y": 479,
+        "w": 552,
+        "h": 202
+    },
+    {
+        "id": "afafaa2a1ea02298",
+        "type": "ui_tab",
+        "name": "this is tab",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "38509695f25500e2",
+        "type": "ui_base",
+        "theme": {
+            "name": "theme-custom",
+            "lightTheme": {
+                "default": "#0094CE",
+                "baseColor": "#0094CE",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": true,
+                "reset": false
+            },
+            "darkTheme": {
+                "default": "#097479",
+                "baseColor": "#770909",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": true,
+                "reset": false
+            },
+            "customTheme": {
+                "name": "Untitled Theme 1",
+                "default": "#4B7930",
+                "baseColor": "#583078",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "reset": false
+            },
+            "themeState": {
+                "base-color": {
+                    "default": "#4B7930",
+                    "value": "#583078",
+                    "edited": true
+                },
+                "page-titlebar-backgroundColor": {
+                    "value": "#307874",
+                    "edited": true
+                },
+                "page-backgroundColor": {
+                    "value": "#121212",
+                    "edited": true
+                },
+                "page-sidebar-backgroundColor": {
+                    "value": "#333333",
+                    "edited": false
+                },
+                "group-textColor": {
+                    "value": "#8046af",
+                    "edited": false
+                },
+                "group-borderColor": {
+                    "value": "#555555",
+                    "edited": false
+                },
+                "group-backgroundColor": {
+                    "value": "#333333",
+                    "edited": false
+                },
+                "widget-textColor": {
+                    "value": "#eeeeee",
+                    "edited": false
+                },
+                "widget-backgroundColor": {
+                    "value": "#583078",
+                    "edited": false
+                },
+                "widget-borderColor": {
+                    "value": "#333333",
+                    "edited": false
+                },
+                "base-font": {
+                    "value": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+                }
+            },
+            "angularTheme": {
+                "primary": "indigo",
+                "accents": "blue",
+                "warn": "red",
+                "background": "grey",
+                "palette": "light"
+            }
+        },
+        "site": {
+            "name": "Node-RED Dashboard",
+            "hideToolbar": "false",
+            "allowSwipe": "true",
+            "lockMenu": "false",
+            "allowTempTheme": "true",
+            "dateFormat": "DD/MM/YYYY",
+            "sizes": {
+                "sx": 48,
+                "sy": 48,
+                "gx": 6,
+                "gy": 6,
+                "cx": 6,
+                "cy": 6,
+                "px": 0,
+                "py": 0
+            }
+        }
+    },
+    {
+        "id": "41da56ca656436aa",
+        "type": "ui_group",
+        "name": "this is Group",
+        "tab": "afafaa2a1ea02298",
+        "order": 1,
+        "disp": true,
+        "width": 6,
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "47f54a0155526542",
+        "type": "ui_group",
+        "name": "Another Group",
+        "tab": "afafaa2a1ea02298",
+        "order": 2,
+        "disp": true,
+        "width": 6,
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "c76f5328fc3a5b6a",
+        "type": "ui_tab",
+        "name": "tab 2",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "ba6a8c71c77de9ab",
+        "type": "ui_group",
+        "name": "group 2",
+        "tab": "c76f5328fc3a5b6a",
+        "order": 1,
+        "disp": true,
+        "width": 6,
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "93c8beaa980d5802",
+        "type": "mqtt-broker",
+        "name": "",
+        "broker": "broker.mqttdashboard.com",
+        "port": 1883,
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": 4,
+        "keepalive": 60,
+        "cleansession": true,
+        "autoUnsubscribe": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthRetain": "false",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closeRetain": "false",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willRetain": "false",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "891ef406a38e49f3",
+        "type": "ui_group",
+        "name": "My own data",
+        "tab": "afafaa2a1ea02298",
+        "order": 1,
+        "disp": true,
+        "width": 6,
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "b433dc139e6db7ed",
+        "type": "ui_group",
+        "name": "All Data",
+        "tab": "afafaa2a1ea02298",
+        "order": 4,
+        "disp": true,
+        "width": "12",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "971f5502539facee",
+        "type": "ui_spacer",
+        "z": "74e0b9721ac394dd",
+        "name": "spacer",
+        "group": "b433dc139e6db7ed",
+        "order": 4,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "39335641bdb2a1b4",
+        "type": "ui_group",
+        "name": "Bar Chart ",
+        "tab": "afafaa2a1ea02298",
+        "order": 5,
+        "disp": true,
+        "width": "12",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "d7e418f15a89b8af",
+        "type": "inject",
+        "z": "74e0b9721ac394dd",
+        "g": "a22bd6497ead84fb",
+        "name": "my inject node",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "iso",
+        "payloadType": "date",
+        "x": 130,
+        "y": 140,
+        "wires": [
+            [
+                "b9ad4184acd610b0"
+            ]
+        ]
+    },
+    {
+        "id": "b9ad4184acd610b0",
+        "type": "debug",
+        "z": "74e0b9721ac394dd",
+        "g": "a22bd6497ead84fb",
+        "name": "debugging",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 350,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "3b92996429f3435d",
+        "type": "ui_slider",
+        "z": "74e0b9721ac394dd",
+        "g": "a22bd6497ead84fb",
+        "name": "",
+        "label": "slider",
+        "tooltip": "",
+        "group": "41da56ca656436aa",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "outs": "all",
+        "topic": "topic",
+        "topicType": "msg",
+        "min": 0,
+        "max": 10,
+        "step": 1,
+        "className": "",
+        "x": 110,
+        "y": 260,
+        "wires": [
+            [
+                "307681e526c57c3a"
+            ]
+        ]
+    },
+    {
+        "id": "307681e526c57c3a",
+        "type": "ui_gauge",
+        "z": "74e0b9721ac394dd",
+        "g": "a22bd6497ead84fb",
+        "name": "",
+        "group": "41da56ca656436aa",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "gauge",
+        "label": "units",
+        "format": "{{value}}",
+        "min": 0,
+        "max": 10,
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 350,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "ba0dce9beec6f617",
+        "type": "ui_switch",
+        "z": "74e0b9721ac394dd",
+        "g": "a22bd6497ead84fb",
+        "name": "",
+        "label": "switch",
+        "tooltip": "",
+        "group": "41da56ca656436aa",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "className": "",
+        "x": 110,
+        "y": 200,
+        "wires": [
+            [
+                "307681e526c57c3a"
+            ]
+        ]
+    },
+    {
+        "id": "b5286d58b884d31e",
+        "type": "ui_button",
+        "z": "74e0b9721ac394dd",
+        "g": "a22bd6497ead84fb",
+        "name": "",
+        "group": "41da56ca656436aa",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "button",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 110,
+        "y": 320,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "1ac551ae2b2d59fe",
+        "type": "ui_switch",
+        "z": "74e0b9721ac394dd",
+        "g": "a22bd6497ead84fb",
+        "name": "",
+        "label": "LED",
+        "tooltip": "",
+        "group": "41da56ca656436aa",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "className": "",
+        "x": 110,
+        "y": 380,
+        "wires": [
+            [
+                "0d373f888c622e20"
+            ]
+        ]
+    },
+    {
+        "id": "0d373f888c622e20",
+        "type": "rpi-gpio out",
+        "z": "74e0b9721ac394dd",
+        "g": "a22bd6497ead84fb",
+        "name": "",
+        "pin": "21",
+        "set": "",
+        "level": "0",
+        "freq": "",
+        "out": "out",
+        "bcm": true,
+        "x": 360,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "57600c589f377048",
+        "type": "mqtt in",
+        "z": "74e0b9721ac394dd",
+        "g": "c8e58de4510d7552",
+        "name": "",
+        "topic": "ProIT_IoT/Gargi/temp",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "93c8beaa980d5802",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 640,
+        "y": 160,
+        "wires": [
+            [
+                "56bdd5cddd223195",
+                "9862f8f196e75461"
+            ]
+        ]
+    },
+    {
+        "id": "56bdd5cddd223195",
+        "type": "debug",
+        "z": "74e0b9721ac394dd",
+        "g": "c8e58de4510d7552",
+        "name": "debug 1",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 900,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "9862f8f196e75461",
+        "type": "ui_gauge",
+        "z": "74e0b9721ac394dd",
+        "g": "c8e58de4510d7552",
+        "name": "",
+        "group": "891ef406a38e49f3",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Temp",
+        "label": "units",
+        "format": "{{value}}",
+        "min": "-30",
+        "max": "40",
+        "colors": [
+            "#000064",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 890,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "e64a1b16ffe5343c",
+        "type": "mqtt in",
+        "z": "74e0b9721ac394dd",
+        "g": "c8e58de4510d7552",
+        "name": "",
+        "topic": "ProIT_IoT/Gargi/humi",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "93c8beaa980d5802",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 640,
+        "y": 280,
+        "wires": [
+            [
+                "c276892e226c77ee",
+                "d09564b843e880c2"
+            ]
+        ]
+    },
+    {
+        "id": "d09564b843e880c2",
+        "type": "debug",
+        "z": "74e0b9721ac394dd",
+        "g": "c8e58de4510d7552",
+        "name": "debug 2",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 900,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "c276892e226c77ee",
+        "type": "ui_gauge",
+        "z": "74e0b9721ac394dd",
+        "g": "c8e58de4510d7552",
+        "name": "",
+        "group": "891ef406a38e49f3",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Humididty",
+        "label": "units",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "100",
+        "colors": [
+            "#005cb3",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 920,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "3cecba46ee7f8804",
+        "type": "mqtt in",
+        "z": "74e0b9721ac394dd",
+        "g": "c4d2f632b3002f69",
+        "name": "",
+        "topic": "ProIT_IoT/+/temp",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "93c8beaa980d5802",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 120,
+        "y": 520,
+        "wires": [
+            [
+                "678da3e05c43d17b",
+                "213a401098c54d8e",
+                "7832292b51e6c001"
+            ]
+        ]
+    },
+    {
+        "id": "678da3e05c43d17b",
+        "type": "debug",
+        "z": "74e0b9721ac394dd",
+        "g": "c4d2f632b3002f69",
+        "name": "debug 3",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 360,
+        "y": 520,
+        "wires": []
+    },
+    {
+        "id": "213a401098c54d8e",
+        "type": "ui_chart",
+        "z": "74e0b9721ac394dd",
+        "g": "c4d2f632b3002f69",
+        "name": "",
+        "group": "b433dc139e6db7ed",
+        "order": 0,
+        "width": "12",
+        "height": "12",
+        "label": "Line chart Temperature",
+        "chartType": "line",
+        "legend": "true",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 410,
+        "y": 600,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "318c7a858f2505e7",
+        "type": "mqtt in",
+        "z": "74e0b9721ac394dd",
+        "g": "78024a06b9b5bc2a",
+        "name": "",
+        "topic": "ProIT_IoT/+/humi",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "93c8beaa980d5802",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 660,
+        "y": 560,
+        "wires": [
+            [
+                "d221b797e94423e1",
+                "50b8304819b13260",
+                "49034b6ae3637049"
+            ]
+        ]
+    },
+    {
+        "id": "d221b797e94423e1",
+        "type": "debug",
+        "z": "74e0b9721ac394dd",
+        "g": "78024a06b9b5bc2a",
+        "name": "debug 4",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 960,
+        "y": 520,
+        "wires": []
+    },
+    {
+        "id": "50b8304819b13260",
+        "type": "ui_chart",
+        "z": "74e0b9721ac394dd",
+        "g": "78024a06b9b5bc2a",
+        "name": "",
+        "group": "39335641bdb2a1b4",
+        "order": 2,
+        "width": "12",
+        "height": "12",
+        "label": "Bar chart Humidity",
+        "chartType": "bar",
+        "legend": "true",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 990,
+        "y": 580,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "49034b6ae3637049",
+        "type": "ui_chart",
+        "z": "74e0b9721ac394dd",
+        "g": "78024a06b9b5bc2a",
+        "name": "",
+        "group": "b433dc139e6db7ed",
+        "order": 2,
+        "width": "10",
+        "height": "10",
+        "label": "Line chart Humidity",
+        "chartType": "line",
+        "legend": "true",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 990,
+        "y": 640,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "7832292b51e6c001",
+        "type": "ui_chart",
+        "z": "74e0b9721ac394dd",
+        "g": "c4d2f632b3002f69",
+        "name": "",
+        "group": "39335641bdb2a1b4",
+        "order": 0,
+        "width": "12",
+        "height": "12",
+        "label": "Bar chart Temperature",
+        "chartType": "bar",
+        "legend": "true",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 400,
+        "y": 660,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "1428196d8f3fab24",
+        "type": "ui_audio",
+        "z": "74e0b9721ac394dd",
+        "name": "Audio",
+        "group": "891ef406a38e49f3",
+        "voice": "Google UK English Female",
+        "always": "",
+        "x": 430,
+        "y": 820,
+        "wires": []
+    },
+    {
+        "id": "84c5fd7b6d9b3d58",
+        "type": "mqtt in",
+        "z": "74e0b9721ac394dd",
+        "name": "",
+        "topic": "ProIT_IoT/Gargi/temp",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "93c8beaa980d5802",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 140,
+        "y": 820,
+        "wires": [
+            [
+                "1428196d8f3fab24",
+                "71bb5cecd0e02feb",
+                "0c214dd0db4e2100"
+            ]
+        ]
+    },
+    {
+        "id": "71bb5cecd0e02feb",
+        "type": "debug",
+        "z": "74e0b9721ac394dd",
+        "name": "debug 5",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 420,
+        "y": 760,
+        "wires": []
+    },
+    {
+        "id": "0c214dd0db4e2100",
+        "type": "play audio",
+        "z": "74e0b9721ac394dd",
+        "name": "",
+        "voice": "0",
+        "x": 410,
+        "y": 880,
+        "wires": []
+    },
+    {
+        "id": "c1d238f5ae4fef6b",
+        "type": "global-config",
+        "env": [],
+        "modules": {
+            "node-red-dashboard": "3.6.6",
+            "node-red-node-pi-gpio": "2.0.6",
+            "node-red-contrib-play-audio": "2.5.0"
+        }
+    }
+]
