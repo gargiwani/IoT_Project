@@ -1,0 +1,63 @@
+[
+    {
+        "id": "1ac551ae2b2d59fe",
+        "type": "ui_switch",
+        "z": "74e0b9721ac394dd",
+        "name": "",
+        "label": "LED",
+        "tooltip": "",
+        "group": "41da56ca656436aa",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "className": "",
+        "x": 170,
+        "y": 440,
+        "wires": [
+            [
+                "0d373f888c622e20"
+            ]
+        ]
+    },
+    {
+        "id": "41da56ca656436aa",
+        "type": "ui_group",
+        "name": "this is Group",
+        "tab": "afafaa2a1ea02298",
+        "order": 1,
+        "disp": true,
+        "width": 6,
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "afafaa2a1ea02298",
+        "type": "ui_tab",
+        "name": "this is tab",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "454bccafb69354e2",
+        "type": "global-config",
+        "env": [],
+        "modules": {
+            "node-red-dashboard": "3.6.6"
+        }
+    }
+]
