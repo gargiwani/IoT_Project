@@ -1,0 +1,815 @@
+[
+    {
+        "id": "6a7f6adddd16a922",
+        "type": "group",
+        "z": "74e0b9721ac394dd",
+        "style": {
+            "stroke": "#999999",
+            "stroke-opacity": "1",
+            "fill": "none",
+            "fill-opacity": "1",
+            "label": true,
+            "label-position": "nw",
+            "color": "#a4a4a4"
+        },
+        "nodes": [
+            "f77e5a79df3ea1ac",
+            "9545a168ac5d2471",
+            "1fbed0ee947d90d0",
+            "1c2e78a398193906",
+            "23dc422e4dcd5182",
+            "dee27236369e8af8"
+        ],
+        "x": 34,
+        "y": 1239,
+        "w": 872,
+        "h": 222
+    },
+    {
+        "id": "f77e5a79df3ea1ac",
+        "type": "telegram receiver",
+        "z": "74e0b9721ac394dd",
+        "g": "6a7f6adddd16a922",
+        "name": "",
+        "bot": "126bd3092bcdf9f1",
+        "saveDataDir": "",
+        "filterCommands": false,
+        "hasinput": false,
+        "inputs": 0,
+        "handleallupdates": false,
+        "x": 150,
+        "y": 1300,
+        "wires": [
+            [
+                "9545a168ac5d2471",
+                "23dc422e4dcd5182"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "9545a168ac5d2471",
+        "type": "debug",
+        "z": "74e0b9721ac394dd",
+        "g": "6a7f6adddd16a922",
+        "name": "debug 7",
+        "active": true,
+        "tosidebar": true,
+        "console": true,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 490,
+        "y": 1280,
+        "wires": []
+    },
+    {
+        "id": "1fbed0ee947d90d0",
+        "type": "ui_text",
+        "z": "74e0b9721ac394dd",
+        "g": "6a7f6adddd16a922",
+        "group": "f236a47f63deaf71",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Received messages",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#000000",
+        "x": 780,
+        "y": 1380,
+        "wires": []
+    },
+    {
+        "id": "1c2e78a398193906",
+        "type": "inject",
+        "z": "74e0b9721ac394dd",
+        "g": "6a7f6adddd16a922",
+        "name": "Hello Text",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "Hello Text",
+        "payloadType": "str",
+        "x": 480,
+        "y": 1420,
+        "wires": [
+            [
+                "1fbed0ee947d90d0"
+            ]
+        ]
+    },
+    {
+        "id": "23dc422e4dcd5182",
+        "type": "change",
+        "z": "74e0b9721ac394dd",
+        "g": "6a7f6adddd16a922",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.content",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 480,
+        "y": 1360,
+        "wires": [
+            [
+                "1fbed0ee947d90d0",
+                "dee27236369e8af8"
+            ]
+        ]
+    },
+    {
+        "id": "dee27236369e8af8",
+        "type": "debug",
+        "z": "74e0b9721ac394dd",
+        "g": "6a7f6adddd16a922",
+        "name": "debug 8",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 720,
+        "y": 1280,
+        "wires": []
+    },
+    {
+        "id": "126bd3092bcdf9f1",
+        "type": "telegram bot",
+        "botname": "Gargi_IoT_bot",
+        "usernames": "",
+        "chatids": "",
+        "baseapiurl": "",
+        "testenvironment": false,
+        "updatemode": "polling",
+        "pollinterval": 300,
+        "usesocks": false,
+        "sockshost": "",
+        "socksprotocol": "socks5",
+        "socksport": 6667,
+        "socksusername": "anonymous",
+        "sockspassword": "",
+        "bothost": "",
+        "botpath": "",
+        "localbothost": "0.0.0.0",
+        "localbotport": 8443,
+        "publicbotport": 8443,
+        "privatekey": "",
+        "certificate": "",
+        "useselfsignedcertificate": false,
+        "sslterminated": false,
+        "verboselogging": false
+    },
+    {
+        "id": "f236a47f63deaf71",
+        "type": "ui_group",
+        "name": "Telegram Group",
+        "tab": "afafaa2a1ea02298",
+        "order": 6,
+        "disp": true,
+        "width": 6,
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "afafaa2a1ea02298",
+        "type": "ui_tab",
+        "name": "this is tab",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "e2e43a9aa578fd95",
+        "type": "group",
+        "z": "74e0b9721ac394dd",
+        "style": {
+            "stroke": "#999999",
+            "stroke-opacity": "1",
+            "fill": "none",
+            "fill-opacity": "1",
+            "label": true,
+            "label-position": "nw",
+            "color": "#a4a4a4"
+        },
+        "nodes": [
+            "5c21b8a7187bb1ff",
+            "48cbe65bbdf12120",
+            "eefb7fc4113f2f5a",
+            "95eb7eee98d65fe1",
+            "ed81c031888f6206",
+            "744317e8924fe9be",
+            "42d8840c0f519ee4",
+            "42e10232a6e32bd4",
+            "bbc38613bd57077d",
+            "b062f34b68bfb736",
+            "7574a70abd0f2604",
+            "66b1178d3dd5eb08",
+            "ba6456b249e53354",
+            "04ec75203ebc46d7",
+            "803ccd4a7b6f9ca7",
+            "c0a554d30b0021a2",
+            "df5484295bb2645c",
+            "4a57d1e377fa29c6",
+            "1e192956faee97fd"
+        ],
+        "x": 14,
+        "y": 1579,
+        "w": 1072,
+        "h": 522
+    },
+    {
+        "id": "5c21b8a7187bb1ff",
+        "type": "inject",
+        "z": "74e0b9721ac394dd",
+        "g": "e2e43a9aa578fd95",
+        "name": "Hello Text",
+        "props": [
+            {
+                "p": "payload.type",
+                "v": "message",
+                "vt": "str"
+            },
+            {
+                "p": "payload.content",
+                "v": "this works!",
+                "vt": "str"
+            },
+            {
+                "p": "payload.chatId",
+                "v": "1372509640",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 620,
+        "y": 1680,
+        "wires": [
+            [
+                "eefb7fc4113f2f5a"
+            ]
+        ]
+    },
+    {
+        "id": "48cbe65bbdf12120",
+        "type": "debug",
+        "z": "74e0b9721ac394dd",
+        "g": "e2e43a9aa578fd95",
+        "name": "debug 9",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 900,
+        "y": 1620,
+        "wires": []
+    },
+    {
+        "id": "eefb7fc4113f2f5a",
+        "type": "telegram sender",
+        "z": "74e0b9721ac394dd",
+        "g": "e2e43a9aa578fd95",
+        "name": "",
+        "bot": "126bd3092bcdf9f1",
+        "haserroroutput": false,
+        "outputs": 1,
+        "x": 890,
+        "y": 1680,
+        "wires": [
+            [
+                "48cbe65bbdf12120"
+            ]
+        ]
+    },
+    {
+        "id": "95eb7eee98d65fe1",
+        "type": "ui_slider",
+        "z": "74e0b9721ac394dd",
+        "g": "e2e43a9aa578fd95",
+        "name": "",
+        "label": "slider",
+        "tooltip": "",
+        "group": "f236a47f63deaf71",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "outs": "all",
+        "topic": "topic",
+        "topicType": "msg",
+        "min": 0,
+        "max": 10,
+        "step": 1,
+        "className": "",
+        "x": 90,
+        "y": 1780,
+        "wires": [
+            [
+                "ed81c031888f6206",
+                "42e10232a6e32bd4"
+            ]
+        ]
+    },
+    {
+        "id": "ed81c031888f6206",
+        "type": "debug",
+        "z": "74e0b9721ac394dd",
+        "g": "e2e43a9aa578fd95",
+        "name": "debug 11",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 240,
+        "y": 1740,
+        "wires": []
+    },
+    {
+        "id": "744317e8924fe9be",
+        "type": "change",
+        "z": "74e0b9721ac394dd",
+        "g": "e2e43a9aa578fd95",
+        "name": "",
+        "rules": [
+            {
+                "t": "move",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.content",
+                "tot": "msg"
+            },
+            {
+                "t": "set",
+                "p": "payload.chatId",
+                "pt": "msg",
+                "to": "1372509640",
+                "tot": "num"
+            },
+            {
+                "t": "set",
+                "p": "payload.type",
+                "pt": "msg",
+                "to": "message",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 900,
+        "y": 1860,
+        "wires": [
+            [
+                "42d8840c0f519ee4",
+                "eefb7fc4113f2f5a"
+            ]
+        ]
+    },
+    {
+        "id": "42d8840c0f519ee4",
+        "type": "debug",
+        "z": "74e0b9721ac394dd",
+        "g": "e2e43a9aa578fd95",
+        "name": "debug 12",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 980,
+        "y": 1900,
+        "wires": []
+    },
+    {
+        "id": "42e10232a6e32bd4",
+        "type": "switch",
+        "z": "74e0b9721ac394dd",
+        "g": "e2e43a9aa578fd95",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "gt",
+                "v": "5",
+                "vt": "num"
+            },
+            {
+                "t": "lte",
+                "v": "3",
+                "vt": "num"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 110,
+        "y": 1880,
+        "wires": [
+            [
+                "df5484295bb2645c"
+            ],
+            [
+                "b062f34b68bfb736",
+                "c0a554d30b0021a2"
+            ]
+        ]
+    },
+    {
+        "id": "bbc38613bd57077d",
+        "type": "string",
+        "z": "74e0b9721ac394dd",
+        "g": "e2e43a9aa578fd95",
+        "name": "",
+        "methods": [
+            {
+                "name": "append",
+                "params": [
+                    {
+                        "type": "str",
+                        "value": "-is the number on slider !ALERT! "
+                    }
+                ]
+            }
+        ],
+        "prop": "payload",
+        "propout": "payload",
+        "object": "msg",
+        "objectout": "msg",
+        "x": 450,
+        "y": 1860,
+        "wires": [
+            [
+                "ba6456b249e53354"
+            ]
+        ]
+    },
+    {
+        "id": "b062f34b68bfb736",
+        "type": "debug",
+        "z": "74e0b9721ac394dd",
+        "g": "e2e43a9aa578fd95",
+        "name": "debug 15",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 280,
+        "y": 1960,
+        "wires": []
+    },
+    {
+        "id": "7574a70abd0f2604",
+        "type": "string",
+        "z": "74e0b9721ac394dd",
+        "g": "e2e43a9aa578fd95",
+        "name": "",
+        "methods": [
+            {
+                "name": "append",
+                "params": [
+                    {
+                        "type": "str",
+                        "value": "- Temp on slider, No Danger"
+                    }
+                ]
+            }
+        ],
+        "prop": "payload",
+        "propout": "payload",
+        "object": "msg",
+        "objectout": "msg",
+        "x": 450,
+        "y": 1900,
+        "wires": [
+            [
+                "66b1178d3dd5eb08"
+            ]
+        ]
+    },
+    {
+        "id": "66b1178d3dd5eb08",
+        "type": "change",
+        "z": "74e0b9721ac394dd",
+        "g": "e2e43a9aa578fd95",
+        "name": "Set flow.alarm",
+        "rules": [
+            {
+                "t": "set",
+                "p": "alarm",
+                "pt": "flow",
+                "to": "false",
+                "tot": "bool"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 640,
+        "y": 1900,
+        "wires": [
+            [
+                "744317e8924fe9be",
+                "803ccd4a7b6f9ca7"
+            ]
+        ]
+    },
+    {
+        "id": "ba6456b249e53354",
+        "type": "change",
+        "z": "74e0b9721ac394dd",
+        "g": "e2e43a9aa578fd95",
+        "name": "Set flow.alarm",
+        "rules": [
+            {
+                "t": "set",
+                "p": "alarm",
+                "pt": "flow",
+                "to": "true",
+                "tot": "bool"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 640,
+        "y": 1860,
+        "wires": [
+            [
+                "744317e8924fe9be",
+                "04ec75203ebc46d7"
+            ]
+        ]
+    },
+    {
+        "id": "04ec75203ebc46d7",
+        "type": "debug",
+        "z": "74e0b9721ac394dd",
+        "g": "e2e43a9aa578fd95",
+        "name": "debug 13",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 820,
+        "y": 1800,
+        "wires": []
+    },
+    {
+        "id": "803ccd4a7b6f9ca7",
+        "type": "debug",
+        "z": "74e0b9721ac394dd",
+        "g": "e2e43a9aa578fd95",
+        "name": "debug 16",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 800,
+        "y": 1960,
+        "wires": []
+    },
+    {
+        "id": "c0a554d30b0021a2",
+        "type": "switch",
+        "z": "74e0b9721ac394dd",
+        "g": "e2e43a9aa578fd95",
+        "name": "Alarm ON",
+        "property": "alarm",
+        "propertyType": "flow",
+        "rules": [
+            {
+                "t": "true"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 280,
+        "y": 1900,
+        "wires": [
+            [
+                "7574a70abd0f2604"
+            ]
+        ]
+    },
+    {
+        "id": "df5484295bb2645c",
+        "type": "switch",
+        "z": "74e0b9721ac394dd",
+        "g": "e2e43a9aa578fd95",
+        "name": "Alarm OFF",
+        "property": "alarm",
+        "propertyType": "flow",
+        "rules": [
+            {
+                "t": "false"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 290,
+        "y": 1860,
+        "wires": [
+            [
+                "bbc38613bd57077d"
+            ]
+        ]
+    },
+    {
+        "id": "4a57d1e377fa29c6",
+        "type": "inject",
+        "z": "74e0b9721ac394dd",
+        "g": "e2e43a9aa578fd95",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "false",
+        "payloadType": "bool",
+        "x": 110,
+        "y": 2060,
+        "wires": [
+            [
+                "1e192956faee97fd"
+            ]
+        ]
+    },
+    {
+        "id": "1e192956faee97fd",
+        "type": "change",
+        "z": "74e0b9721ac394dd",
+        "g": "e2e43a9aa578fd95",
+        "name": "Set flow.alarm",
+        "rules": [
+            {
+                "t": "set",
+                "p": "alarm",
+                "pt": "flow",
+                "to": "false",
+                "tot": "bool"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 340,
+        "y": 2060,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "e5f281b08555db50",
+        "type": "group",
+        "z": "74e0b9721ac394dd",
+        "name": "Telegram group",
+        "style": {
+            "label": true
+        },
+        "nodes": [
+            "02caf5f68af73487",
+            "26913751b91cff7e",
+            "8f274f896a0ad702"
+        ],
+        "x": 34,
+        "y": 1019,
+        "w": 592,
+        "h": 142
+    },
+    {
+        "id": "02caf5f68af73487",
+        "type": "telegram receiver",
+        "z": "74e0b9721ac394dd",
+        "g": "e5f281b08555db50",
+        "name": "",
+        "bot": "126bd3092bcdf9f1",
+        "saveDataDir": "",
+        "filterCommands": false,
+        "hasinput": false,
+        "inputs": 0,
+        "handleallupdates": false,
+        "x": 150,
+        "y": 1120,
+        "wires": [
+            [
+                "26913751b91cff7e",
+                "8f274f896a0ad702"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "26913751b91cff7e",
+        "type": "telegram sender",
+        "z": "74e0b9721ac394dd",
+        "g": "e5f281b08555db50",
+        "name": "",
+        "bot": "126bd3092bcdf9f1",
+        "haserroroutput": false,
+        "outputs": 1,
+        "x": 510,
+        "y": 1120,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "8f274f896a0ad702",
+        "type": "debug",
+        "z": "74e0b9721ac394dd",
+        "g": "e5f281b08555db50",
+        "name": "debug 6",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 480,
+        "y": 1060,
+        "wires": []
+    },
+    {
+        "id": "cf8d07b32d600eb3",
+        "type": "global-config",
+        "env": [],
+        "modules": {
+            "node-red-contrib-telegrambot": "17.0.3",
+            "node-red-dashboard": "3.6.6",
+            "node-red-contrib-string": "1.0.0"
+        }
+    }
+]
