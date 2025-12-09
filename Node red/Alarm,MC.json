@@ -1,0 +1,1464 @@
+[
+    {
+        "id": "9bb0d02abcfbe120",
+        "type": "change",
+        "z": "74e0b9721ac394dd",
+        "g": "2167df4c678b078b",
+        "name": "",
+        "rules": [
+            {
+                "t": "move",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.content",
+                "tot": "msg"
+            },
+            {
+                "t": "set",
+                "p": "payload.chatId",
+                "pt": "msg",
+                "to": "1372509640",
+                "tot": "num"
+            },
+            {
+                "t": "set",
+                "p": "payload.type",
+                "pt": "msg",
+                "to": "message",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 920,
+        "y": 2280,
+        "wires": [
+            [
+                "b009e38f7687d516",
+                "a0c699b35a38c31c"
+            ]
+        ]
+    },
+    {
+        "id": "0304224011f3f8de",
+        "type": "switch",
+        "z": "74e0b9721ac394dd",
+        "g": "2167df4c678b078b",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "lt",
+                "v": "25",
+                "vt": "num"
+            },
+            {
+                "t": "gte",
+                "v": "30",
+                "vt": "num"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 150,
+        "y": 2280,
+        "wires": [
+            [
+                "cac7df3cba640ccb"
+            ],
+            [
+                "b7a96b952c10dbd0"
+            ]
+        ]
+    },
+    {
+        "id": "137e778da68ca4ea",
+        "type": "string",
+        "z": "74e0b9721ac394dd",
+        "g": "2167df4c678b078b",
+        "name": "",
+        "methods": [
+            {
+                "name": "append",
+                "params": [
+                    {
+                        "type": "str",
+                        "value": " is the Termpature in the room. Normal"
+                    }
+                ]
+            }
+        ],
+        "prop": "payload",
+        "propout": "payload",
+        "object": "msg",
+        "objectout": "msg",
+        "x": 490,
+        "y": 2260,
+        "wires": [
+            [
+                "d145a60209d0427d"
+            ]
+        ]
+    },
+    {
+        "id": "329459f06ec95665",
+        "type": "string",
+        "z": "74e0b9721ac394dd",
+        "g": "2167df4c678b078b",
+        "name": "",
+        "methods": [
+            {
+                "name": "append",
+                "params": [
+                    {
+                        "type": "str",
+                        "value": " is the Temperature in the room !Too Hot"
+                    }
+                ]
+            }
+        ],
+        "prop": "payload",
+        "propout": "payload",
+        "object": "msg",
+        "objectout": "msg",
+        "x": 490,
+        "y": 2300,
+        "wires": [
+            [
+                "5013a4a843b33fbb"
+            ]
+        ]
+    },
+    {
+        "id": "5013a4a843b33fbb",
+        "type": "change",
+        "z": "74e0b9721ac394dd",
+        "g": "2167df4c678b078b",
+        "name": "Set flow.alarmTemUP",
+        "rules": [
+            {
+                "t": "set",
+                "p": "alarmTemUP",
+                "pt": "flow",
+                "to": "false",
+                "tot": "bool"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 700,
+        "y": 2300,
+        "wires": [
+            [
+                "9bb0d02abcfbe120"
+            ]
+        ]
+    },
+    {
+        "id": "d145a60209d0427d",
+        "type": "change",
+        "z": "74e0b9721ac394dd",
+        "g": "2167df4c678b078b",
+        "name": "Set flow.alarmTemUP",
+        "rules": [
+            {
+                "t": "set",
+                "p": "alarmTemUP",
+                "pt": "flow",
+                "to": "true",
+                "tot": "bool"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 700,
+        "y": 2260,
+        "wires": [
+            [
+                "9bb0d02abcfbe120"
+            ]
+        ]
+    },
+    {
+        "id": "b7a96b952c10dbd0",
+        "type": "switch",
+        "z": "74e0b9721ac394dd",
+        "g": "2167df4c678b078b",
+        "name": "Alarm ON",
+        "property": "alarmTemUP",
+        "propertyType": "flow",
+        "rules": [
+            {
+                "t": "true"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 320,
+        "y": 2300,
+        "wires": [
+            [
+                "329459f06ec95665"
+            ]
+        ]
+    },
+    {
+        "id": "cac7df3cba640ccb",
+        "type": "switch",
+        "z": "74e0b9721ac394dd",
+        "g": "2167df4c678b078b",
+        "name": "Alarm OFF",
+        "property": "alarmTemUP",
+        "propertyType": "flow",
+        "rules": [
+            {
+                "t": "false"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 330,
+        "y": 2260,
+        "wires": [
+            [
+                "137e778da68ca4ea"
+            ]
+        ]
+    },
+    {
+        "id": "618355a490ef33f1",
+        "type": "link in",
+        "z": "74e0b9721ac394dd",
+        "g": "2167df4c678b078b",
+        "name": "link in 5",
+        "links": [
+            "0b6bea4184596faf"
+        ],
+        "x": 55,
+        "y": 2340,
+        "wires": [
+            [
+                "0304224011f3f8de",
+                "b6794ab04331eb48"
+            ]
+        ]
+    },
+    {
+        "id": "b009e38f7687d516",
+        "type": "link out",
+        "z": "74e0b9721ac394dd",
+        "g": "2167df4c678b078b",
+        "name": "Botmsg Temp upper",
+        "mode": "link",
+        "links": [
+            "133c5eb020728d23"
+        ],
+        "x": 1035,
+        "y": 2280,
+        "wires": []
+    },
+    {
+        "id": "34114006cc81b168",
+        "type": "change",
+        "z": "74e0b9721ac394dd",
+        "g": "2167df4c678b078b",
+        "name": "",
+        "rules": [
+            {
+                "t": "move",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.content",
+                "tot": "msg"
+            },
+            {
+                "t": "set",
+                "p": "payload.chatId",
+                "pt": "msg",
+                "to": "1372509640",
+                "tot": "num"
+            },
+            {
+                "t": "set",
+                "p": "payload.type",
+                "pt": "msg",
+                "to": "message",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 920,
+        "y": 2420,
+        "wires": [
+            [
+                "d2eee3169a7715a0",
+                "5f9d434e395305d8"
+            ]
+        ]
+    },
+    {
+        "id": "b6794ab04331eb48",
+        "type": "switch",
+        "z": "74e0b9721ac394dd",
+        "g": "2167df4c678b078b",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "lt",
+                "v": "15",
+                "vt": "num"
+            },
+            {
+                "t": "gte",
+                "v": "17",
+                "vt": "num"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 150,
+        "y": 2420,
+        "wires": [
+            [
+                "4671c9bd81d084c0"
+            ],
+            [
+                "bee9ce76649bef6c"
+            ]
+        ]
+    },
+    {
+        "id": "4b606b58d401ed38",
+        "type": "string",
+        "z": "74e0b9721ac394dd",
+        "g": "2167df4c678b078b",
+        "name": "",
+        "methods": [
+            {
+                "name": "append",
+                "params": [
+                    {
+                        "type": "str",
+                        "value": " is the temperature in the room !COLD! "
+                    }
+                ]
+            }
+        ],
+        "prop": "payload",
+        "propout": "payload",
+        "object": "msg",
+        "objectout": "msg",
+        "x": 490,
+        "y": 2400,
+        "wires": [
+            [
+                "9393f4558da0febc"
+            ]
+        ]
+    },
+    {
+        "id": "3271d242b78b2486",
+        "type": "string",
+        "z": "74e0b9721ac394dd",
+        "g": "2167df4c678b078b",
+        "name": "",
+        "methods": [
+            {
+                "name": "append",
+                "params": [
+                    {
+                        "type": "str",
+                        "value": " is the Temperature in the room !Normal! "
+                    }
+                ]
+            }
+        ],
+        "prop": "payload",
+        "propout": "payload",
+        "object": "msg",
+        "objectout": "msg",
+        "x": 490,
+        "y": 2440,
+        "wires": [
+            [
+                "f42905a574f56e91"
+            ]
+        ]
+    },
+    {
+        "id": "f42905a574f56e91",
+        "type": "change",
+        "z": "74e0b9721ac394dd",
+        "g": "2167df4c678b078b",
+        "name": "Set flow.alarmTemLOW",
+        "rules": [
+            {
+                "t": "set",
+                "p": "alarmTemLOW",
+                "pt": "flow",
+                "to": "false",
+                "tot": "bool"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 710,
+        "y": 2440,
+        "wires": [
+            [
+                "34114006cc81b168"
+            ]
+        ]
+    },
+    {
+        "id": "9393f4558da0febc",
+        "type": "change",
+        "z": "74e0b9721ac394dd",
+        "g": "2167df4c678b078b",
+        "name": "Set flow.alarmTemLOW",
+        "rules": [
+            {
+                "t": "set",
+                "p": "alarmTemLOW",
+                "pt": "flow",
+                "to": "true",
+                "tot": "bool"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 710,
+        "y": 2400,
+        "wires": [
+            [
+                "34114006cc81b168"
+            ]
+        ]
+    },
+    {
+        "id": "bee9ce76649bef6c",
+        "type": "switch",
+        "z": "74e0b9721ac394dd",
+        "g": "2167df4c678b078b",
+        "name": "Alarm ON",
+        "property": "alarmTemLOW",
+        "propertyType": "flow",
+        "rules": [
+            {
+                "t": "true"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 320,
+        "y": 2440,
+        "wires": [
+            [
+                "3271d242b78b2486"
+            ]
+        ]
+    },
+    {
+        "id": "4671c9bd81d084c0",
+        "type": "switch",
+        "z": "74e0b9721ac394dd",
+        "g": "2167df4c678b078b",
+        "name": "Alarm OFF",
+        "property": "alarmTemLOW",
+        "propertyType": "flow",
+        "rules": [
+            {
+                "t": "false"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 330,
+        "y": 2400,
+        "wires": [
+            [
+                "4b606b58d401ed38"
+            ]
+        ]
+    },
+    {
+        "id": "d2eee3169a7715a0",
+        "type": "link out",
+        "z": "74e0b9721ac394dd",
+        "g": "2167df4c678b078b",
+        "name": "Botmsg Temp lower",
+        "mode": "link",
+        "links": [
+            "133c5eb020728d23"
+        ],
+        "x": 1055,
+        "y": 2420,
+        "wires": []
+    },
+    {
+        "id": "068ff75f68290cb4",
+        "type": "inject",
+        "z": "74e0b9721ac394dd",
+        "g": "2167df4c678b078b",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "false",
+        "payloadType": "bool",
+        "x": 490,
+        "y": 2480,
+        "wires": [
+            [
+                "f42905a574f56e91"
+            ]
+        ]
+    },
+    {
+        "id": "c76a5a27de212627",
+        "type": "comment",
+        "z": "74e0b9721ac394dd",
+        "g": "2167df4c678b078b",
+        "name": "Temp Alarm",
+        "info": "",
+        "x": 170,
+        "y": 2340,
+        "wires": []
+    },
+    {
+        "id": "00047bae63562d87",
+        "type": "change",
+        "z": "74e0b9721ac394dd",
+        "name": "",
+        "rules": [
+            {
+                "t": "move",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.content",
+                "tot": "msg"
+            },
+            {
+                "t": "set",
+                "p": "payload.chatId",
+                "pt": "msg",
+                "to": "1372509640",
+                "tot": "num"
+            },
+            {
+                "t": "set",
+                "p": "payload.type",
+                "pt": "msg",
+                "to": "message",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 960,
+        "y": 2680,
+        "wires": [
+            [
+                "a63a978026db86c8",
+                "c738aab22348137c"
+            ]
+        ]
+    },
+    {
+        "id": "3eeb7eb71b7dd6e4",
+        "type": "switch",
+        "z": "74e0b9721ac394dd",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "gt",
+                "v": "60",
+                "vt": "num"
+            },
+            {
+                "t": "lte",
+                "v": "55",
+                "vt": "num"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 190,
+        "y": 2680,
+        "wires": [
+            [
+                "78bd99d270d34dc9"
+            ],
+            [
+                "df798c9aeffc991a"
+            ]
+        ]
+    },
+    {
+        "id": "fce71b3fff8b1420",
+        "type": "string",
+        "z": "74e0b9721ac394dd",
+        "name": "",
+        "methods": [
+            {
+                "name": "append",
+                "params": [
+                    {
+                        "type": "str",
+                        "value": "  is the Humidity in the room !Normal! "
+                    }
+                ]
+            }
+        ],
+        "prop": "payload",
+        "propout": "payload",
+        "object": "msg",
+        "objectout": "msg",
+        "x": 530,
+        "y": 2660,
+        "wires": [
+            [
+                "77fdf86cf7fe0257"
+            ]
+        ]
+    },
+    {
+        "id": "1c76ba4a3a8d3570",
+        "type": "string",
+        "z": "74e0b9721ac394dd",
+        "name": "",
+        "methods": [
+            {
+                "name": "append",
+                "params": [
+                    {
+                        "type": "str",
+                        "value": "  is the Humidity in the room !SWEATY!"
+                    }
+                ]
+            }
+        ],
+        "prop": "payload",
+        "propout": "payload",
+        "object": "msg",
+        "objectout": "msg",
+        "x": 530,
+        "y": 2700,
+        "wires": [
+            [
+                "381ed5dd1e12074f"
+            ]
+        ]
+    },
+    {
+        "id": "381ed5dd1e12074f",
+        "type": "change",
+        "z": "74e0b9721ac394dd",
+        "name": "Set flow.alarmHumiUP",
+        "rules": [
+            {
+                "t": "set",
+                "p": "alarmHumiUP",
+                "pt": "flow",
+                "to": "false",
+                "tot": "bool"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 740,
+        "y": 2700,
+        "wires": [
+            [
+                "00047bae63562d87"
+            ]
+        ]
+    },
+    {
+        "id": "77fdf86cf7fe0257",
+        "type": "change",
+        "z": "74e0b9721ac394dd",
+        "name": "Set flow.alarmHumiUP",
+        "rules": [
+            {
+                "t": "set",
+                "p": "alarmHumiUP",
+                "pt": "flow",
+                "to": "true",
+                "tot": "bool"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 740,
+        "y": 2660,
+        "wires": [
+            [
+                "00047bae63562d87"
+            ]
+        ]
+    },
+    {
+        "id": "df798c9aeffc991a",
+        "type": "switch",
+        "z": "74e0b9721ac394dd",
+        "name": "Alarm ON",
+        "property": "alarmHumiUP",
+        "propertyType": "flow",
+        "rules": [
+            {
+                "t": "true"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 360,
+        "y": 2700,
+        "wires": [
+            [
+                "1c76ba4a3a8d3570"
+            ]
+        ]
+    },
+    {
+        "id": "78bd99d270d34dc9",
+        "type": "switch",
+        "z": "74e0b9721ac394dd",
+        "name": "Alarm OFF",
+        "property": "alarmHumiUP",
+        "propertyType": "flow",
+        "rules": [
+            {
+                "t": "false"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 370,
+        "y": 2660,
+        "wires": [
+            [
+                "fce71b3fff8b1420"
+            ]
+        ]
+    },
+    {
+        "id": "61f9e95f8572217e",
+        "type": "link in",
+        "z": "74e0b9721ac394dd",
+        "name": "link in humi",
+        "links": [
+            "bcc8b186c606798e"
+        ],
+        "x": 95,
+        "y": 2740,
+        "wires": [
+            [
+                "3eeb7eb71b7dd6e4",
+                "efcfafba58856989"
+            ]
+        ]
+    },
+    {
+        "id": "f464788d9cc40b8c",
+        "type": "change",
+        "z": "74e0b9721ac394dd",
+        "g": "2167df4c678b078b",
+        "name": "",
+        "rules": [
+            {
+                "t": "move",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.content",
+                "tot": "msg"
+            },
+            {
+                "t": "set",
+                "p": "payload.chatId",
+                "pt": "msg",
+                "to": "1372509640",
+                "tot": "num"
+            },
+            {
+                "t": "set",
+                "p": "payload.type",
+                "pt": "msg",
+                "to": "message",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 940,
+        "y": 2780,
+        "wires": [
+            [
+                "493858624a446970",
+                "9d464b718ed3bd1f"
+            ]
+        ]
+    },
+    {
+        "id": "efcfafba58856989",
+        "type": "switch",
+        "z": "74e0b9721ac394dd",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "gt",
+                "v": "75",
+                "vt": "num"
+            },
+            {
+                "t": "lte",
+                "v": "70",
+                "vt": "num"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 190,
+        "y": 2820,
+        "wires": [
+            [
+                "45dc7eb3b79e991b"
+            ],
+            [
+                "6f161d15d94ee829"
+            ]
+        ]
+    },
+    {
+        "id": "57e1b6b2a96cca2e",
+        "type": "string",
+        "z": "74e0b9721ac394dd",
+        "name": "",
+        "methods": [
+            {
+                "name": "append",
+                "params": [
+                    {
+                        "type": "str",
+                        "value": "  is the Humidity in the room !Low!"
+                    }
+                ]
+            }
+        ],
+        "prop": "payload",
+        "propout": "payload",
+        "object": "msg",
+        "objectout": "msg",
+        "x": 530,
+        "y": 2800,
+        "wires": [
+            [
+                "d4e4ba4cd9464e3f"
+            ]
+        ]
+    },
+    {
+        "id": "cb1f0c4c99970812",
+        "type": "string",
+        "z": "74e0b9721ac394dd",
+        "g": "2167df4c678b078b",
+        "name": "",
+        "methods": [
+            {
+                "name": "append",
+                "params": [
+                    {
+                        "type": "str",
+                        "value": "  is the Humidity in the room, it's TOO LOW! "
+                    }
+                ]
+            }
+        ],
+        "prop": "payload",
+        "propout": "payload",
+        "object": "msg",
+        "objectout": "msg",
+        "x": 530,
+        "y": 2840,
+        "wires": [
+            [
+                "9400d1fcb50bbda9"
+            ]
+        ]
+    },
+    {
+        "id": "9400d1fcb50bbda9",
+        "type": "change",
+        "z": "74e0b9721ac394dd",
+        "name": "Set flow.alarmHumiLOW",
+        "rules": [
+            {
+                "t": "set",
+                "p": "alarmHumiLOW",
+                "pt": "flow",
+                "to": "false",
+                "tot": "bool"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 750,
+        "y": 2840,
+        "wires": [
+            [
+                "f464788d9cc40b8c"
+            ]
+        ]
+    },
+    {
+        "id": "d4e4ba4cd9464e3f",
+        "type": "change",
+        "z": "74e0b9721ac394dd",
+        "name": "Set flow.alarmHumiLOW",
+        "rules": [
+            {
+                "t": "set",
+                "p": "alarmHumiLOW",
+                "pt": "flow",
+                "to": "true",
+                "tot": "bool"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 750,
+        "y": 2800,
+        "wires": [
+            [
+                "f464788d9cc40b8c"
+            ]
+        ]
+    },
+    {
+        "id": "6f161d15d94ee829",
+        "type": "switch",
+        "z": "74e0b9721ac394dd",
+        "name": "Alarm ON",
+        "property": "alarmHumiLOW",
+        "propertyType": "flow",
+        "rules": [
+            {
+                "t": "true"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 360,
+        "y": 2840,
+        "wires": [
+            [
+                "cb1f0c4c99970812"
+            ]
+        ]
+    },
+    {
+        "id": "45dc7eb3b79e991b",
+        "type": "switch",
+        "z": "74e0b9721ac394dd",
+        "name": "Alarm OFF",
+        "property": "alarmHumiLOW",
+        "propertyType": "flow",
+        "rules": [
+            {
+                "t": "false"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 370,
+        "y": 2800,
+        "wires": [
+            [
+                "57e1b6b2a96cca2e"
+            ]
+        ]
+    },
+    {
+        "id": "260d111555d9e499",
+        "type": "comment",
+        "z": "74e0b9721ac394dd",
+        "name": "Humi Alarm",
+        "info": "",
+        "x": 210,
+        "y": 2740,
+        "wires": []
+    },
+    {
+        "id": "a63a978026db86c8",
+        "type": "link out",
+        "z": "74e0b9721ac394dd",
+        "g": "2167df4c678b078b",
+        "name": "Botmsg Humi upper",
+        "mode": "link",
+        "links": [
+            "133c5eb020728d23"
+        ],
+        "x": 1095,
+        "y": 2640,
+        "wires": []
+    },
+    {
+        "id": "493858624a446970",
+        "type": "link out",
+        "z": "74e0b9721ac394dd",
+        "g": "2167df4c678b078b",
+        "name": "Botmsg Humi lower",
+        "mode": "link",
+        "links": [
+            "133c5eb020728d23"
+        ],
+        "x": 1065,
+        "y": 2780,
+        "wires": []
+    },
+    {
+        "id": "d69d5dd773f1e4fe",
+        "type": "inject",
+        "z": "74e0b9721ac394dd",
+        "g": "2167df4c678b078b",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "false",
+        "payloadType": "bool",
+        "x": 490,
+        "y": 2340,
+        "wires": [
+            [
+                "5013a4a843b33fbb"
+            ]
+        ]
+    },
+    {
+        "id": "66eedde3aeec926b",
+        "type": "inject",
+        "z": "74e0b9721ac394dd",
+        "g": "2167df4c678b078b",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "false",
+        "payloadType": "bool",
+        "x": 530,
+        "y": 2740,
+        "wires": [
+            [
+                "381ed5dd1e12074f"
+            ]
+        ]
+    },
+    {
+        "id": "622c8f67b55e8a25",
+        "type": "inject",
+        "z": "74e0b9721ac394dd",
+        "g": "2167df4c678b078b",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "false",
+        "payloadType": "bool",
+        "x": 530,
+        "y": 2880,
+        "wires": [
+            [
+                "9400d1fcb50bbda9"
+            ]
+        ]
+    },
+    {
+        "id": "a0c699b35a38c31c",
+        "type": "debug",
+        "z": "74e0b9721ac394dd",
+        "g": "2167df4c678b078b",
+        "name": "debug 14",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1000,
+        "y": 2340,
+        "wires": []
+    },
+    {
+        "id": "5f9d434e395305d8",
+        "type": "debug",
+        "z": "74e0b9721ac394dd",
+        "g": "2167df4c678b078b",
+        "name": "debug 17",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1020,
+        "y": 2480,
+        "wires": []
+    },
+    {
+        "id": "c738aab22348137c",
+        "type": "debug",
+        "z": "74e0b9721ac394dd",
+        "g": "2167df4c678b078b",
+        "name": "debug 19",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1040,
+        "y": 2720,
+        "wires": []
+    },
+    {
+        "id": "9d464b718ed3bd1f",
+        "type": "debug",
+        "z": "74e0b9721ac394dd",
+        "g": "2167df4c678b078b",
+        "name": "debug 23",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1020,
+        "y": 2840,
+        "wires": []
+    },
+    {
+        "id": "6edc0c6ae0221839",
+        "type": "mqtt in",
+        "z": "74e0b9721ac394dd",
+        "name": "",
+        "topic": "ProIT_IoT/Gargi/temp",
+        "qos": "0",
+        "datatype": "auto-detect",
+        "broker": "574829702fe9db62",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 140,
+        "y": 3100,
+        "wires": [
+            [
+                "7a7038add0a2ea91"
+            ]
+        ]
+    },
+    {
+        "id": "36be0dfea5162cc0",
+        "type": "mqtt in",
+        "z": "74e0b9721ac394dd",
+        "name": "",
+        "topic": "ProIT_IoT/Gargi/humi",
+        "qos": "0",
+        "datatype": "auto-detect",
+        "broker": "574829702fe9db62",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 140,
+        "y": 3180,
+        "wires": [
+            [
+                "7c0ff386ed5b8c05"
+            ]
+        ]
+    },
+    {
+        "id": "8859d48f0b19b5dc",
+        "type": "mqtt in",
+        "z": "74e0b9721ac394dd",
+        "name": "",
+        "topic": "ProIT_IoT/+/temp",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "574829702fe9db62",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 120,
+        "y": 3240,
+        "wires": [
+            [
+                "e00ccd3e4677ea23"
+            ]
+        ]
+    },
+    {
+        "id": "88e2737dad76e083",
+        "type": "mqtt in",
+        "z": "74e0b9721ac394dd",
+        "name": "",
+        "topic": "ProIT_IoT/+/humi",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "574829702fe9db62",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 120,
+        "y": 3300,
+        "wires": [
+            [
+                "d2ea661208561b44"
+            ]
+        ]
+    },
+    {
+        "id": "7a7038add0a2ea91",
+        "type": "link out",
+        "z": "74e0b9721ac394dd",
+        "name": "Micro-Broker-Temp",
+        "mode": "link",
+        "links": [
+            "d1385b271da5336b",
+            "e2984a7028493c13"
+        ],
+        "x": 325,
+        "y": 3100,
+        "wires": []
+    },
+    {
+        "id": "7c0ff386ed5b8c05",
+        "type": "link out",
+        "z": "74e0b9721ac394dd",
+        "name": "Micro-Broker-humi",
+        "mode": "link",
+        "links": [
+            "9c37b49922bddd82",
+            "e2984a7028493c13"
+        ],
+        "x": 325,
+        "y": 3180,
+        "wires": []
+    },
+    {
+        "id": "e00ccd3e4677ea23",
+        "type": "link out",
+        "z": "74e0b9721ac394dd",
+        "name": "Micro-Broker-tempall",
+        "mode": "link",
+        "links": [
+            "bd468ff12274bdfc"
+        ],
+        "x": 325,
+        "y": 3240,
+        "wires": []
+    },
+    {
+        "id": "d2ea661208561b44",
+        "type": "link out",
+        "z": "74e0b9721ac394dd",
+        "name": "Micro-Broker-humiall",
+        "mode": "link",
+        "links": [
+            "124cbb7be2215673"
+        ],
+        "x": 325,
+        "y": 3300,
+        "wires": []
+    },
+    {
+        "id": "5d588f31ccb5e7d0",
+        "type": "telegram sender",
+        "z": "74e0b9721ac394dd",
+        "name": "",
+        "bot": "126bd3092bcdf9f1",
+        "haserroroutput": false,
+        "outputs": 1,
+        "x": 630,
+        "y": 3180,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "e2984a7028493c13",
+        "type": "link in",
+        "z": "74e0b9721ac394dd",
+        "name": "telegram sender",
+        "links": [
+            "7a7038add0a2ea91",
+            "7c0ff386ed5b8c05"
+        ],
+        "x": 485,
+        "y": 3180,
+        "wires": [
+            [
+                "5d588f31ccb5e7d0"
+            ]
+        ]
+    },
+    {
+        "id": "574829702fe9db62",
+        "type": "mqtt-broker",
+        "name": "",
+        "broker": "broker.f4.htw-berlin.de",
+        "port": 1883,
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": 4,
+        "keepalive": 60,
+        "cleansession": true,
+        "autoUnsubscribe": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthRetain": "false",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closeRetain": "false",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willRetain": "false",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "126bd3092bcdf9f1",
+        "type": "telegram bot",
+        "botname": "Gargi_IoT_bot",
+        "usernames": "",
+        "chatids": "",
+        "baseapiurl": "",
+        "testenvironment": false,
+        "updatemode": "polling",
+        "pollinterval": 300,
+        "usesocks": false,
+        "sockshost": "",
+        "socksprotocol": "socks5",
+        "socksport": 6667,
+        "socksusername": "anonymous",
+        "sockspassword": "",
+        "bothost": "",
+        "botpath": "",
+        "localbothost": "0.0.0.0",
+        "localbotport": 8443,
+        "publicbotport": 8443,
+        "privatekey": "",
+        "certificate": "",
+        "useselfsignedcertificate": false,
+        "sslterminated": false,
+        "verboselogging": false
+    },
+    {
+        "id": "9c284fda2c522be1",
+        "type": "global-config",
+        "env": [],
+        "modules": {
+            "node-red-contrib-string": "1.0.0",
+            "node-red-contrib-telegrambot": "17.0.3"
+        }
+    }
+]
