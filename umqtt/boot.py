@@ -7,7 +7,7 @@ from umqtt.simple import MQTTClient
 
 # MQTT Server Parameters
 MQTT_CLIENT_ID = "Gargi_test"
-MQTT_BROKER    = "broker.f4.htw-berlin.de"
+MQTT_BROKER    = "raspi3e14.f4.htw-berlin.de"
 MQTT_TOPIC     = "ProIT_IoT/Gargi"
 MQTT_TOPIC_TEMP = "ProIT_IoT/Gargi/temp"
 MQTT_TOPIC_HUMI = "ProIT_IoT/Gargi/humi"
