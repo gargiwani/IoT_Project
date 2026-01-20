@@ -1,0 +1,348 @@
+[
+    {
+        "id": "c76a87679fde57b6",
+        "type": "tab",
+        "label": "Flow 2",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "f030975e2cf518be",
+        "type": "group",
+        "z": "c76a87679fde57b6",
+        "name": "Get any User's data",
+        "style": {
+            "label": true
+        },
+        "nodes": [
+            "a76d61aea1780d6c",
+            "43bb33a199499cb7",
+            "816a2ced0bf18f45",
+            "00b63e6b3f171f80",
+            "88312fffb957b67c"
+        ],
+        "x": 232.81253051757812,
+        "y": 118.81251525878906,
+        "w": 892,
+        "h": 222
+    },
+    {
+        "id": "ae66cb0464ba8816",
+        "type": "group",
+        "z": "c76a87679fde57b6",
+        "name": "Check Sensor status",
+        "style": {
+            "label": true
+        },
+        "nodes": [
+            "aa187ad9ade8023a",
+            "704b2cc119a34238",
+            "d9c53c199a03b35b",
+            "d8b70471814f6e4f",
+            "9f5e498c0ffbe088"
+        ],
+        "x": 234,
+        "y": 439,
+        "w": 1262,
+        "h": 82
+    },
+    {
+        "id": "a76d61aea1780d6c",
+        "type": "mqtt in",
+        "z": "c76a87679fde57b6",
+        "g": "f030975e2cf518be",
+        "name": "",
+        "topic": "ProIT_IoT/+/+",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "574829702fe9db62",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 328.8125305175781,
+        "y": 159.81251525878906,
+        "wires": [
+            [
+                "88312fffb957b67c"
+            ]
+        ]
+    },
+    {
+        "id": "43bb33a199499cb7",
+        "type": "telegram receiver",
+        "z": "c76a87679fde57b6",
+        "g": "f030975e2cf518be",
+        "name": "",
+        "bot": "126bd3092bcdf9f1",
+        "saveDataDir": "",
+        "filterCommands": false,
+        "hasinput": false,
+        "inputs": 0,
+        "handleallupdates": false,
+        "x": 348.8125305175781,
+        "y": 299.81251525878906,
+        "wires": [
+            [
+                "00b63e6b3f171f80"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "816a2ced0bf18f45",
+        "type": "telegram sender",
+        "z": "c76a87679fde57b6",
+        "g": "f030975e2cf518be",
+        "name": "",
+        "bot": "126bd3092bcdf9f1",
+        "haserroroutput": false,
+        "outputs": 1,
+        "x": 1008.8125305175781,
+        "y": 299.81251525878906,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "00b63e6b3f171f80",
+        "type": "function",
+        "z": "c76a87679fde57b6",
+        "g": "f030975e2cf518be",
+        "name": "Reply_temp/humi",
+        "func": "let text = (msg.payload.content || \"\").trim();\nlet parts = text.split(/\\s+/);\n\nif (parts.length !== 3 || parts[0].toLowerCase() !== \"/get\") {\n    msg.payload = {\n        chatId: msg.payload.chatId,\n        type: \"message\",\n        content: \"Use: /get <User> <temp|humi>\\nExample: /get victor temp\"\n    };\n    return msg;\n}\n\nlet userInput = parts[1];\nlet userKey = userInput.trim().toLowerCase();\nlet metric = parts[2].trim().toLowerCase();\n\nif (metric !== \"temp\" && metric !== \"humi\") {\n    msg.payload = {\n        chatId: msg.payload.chatId,\n        type: \"message\",\n        content: \"Invalid type. Use temp or humi.\"\n    };\n    return msg;\n}\n\nlet latest = flow.get(\"latest\") || {};\n\nif (!latest[userKey] || latest[userKey][metric] === undefined) {\n    msg.payload = {\n        chatId: msg.payload.chatId,\n        type: \"message\",\n        content: `No data available for ${userInput} (${metric}).`\n    };\n    return msg;\n}\n\nlet value = latest[userKey][metric];\nlet unit = (metric === \"temp\") ? \"°C\" : \"%\";\n\nmsg.payload = {\n    chatId: msg.payload.chatId,\n    type: \"message\",\n    content: `${userInput} ${metric}: ${value} ${unit}`\n};\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 628.8125305175781,
+        "y": 299.81251525878906,
+        "wires": [
+            [
+                "816a2ced0bf18f45"
+            ]
+        ]
+    },
+    {
+        "id": "88312fffb957b67c",
+        "type": "function",
+        "z": "c76a87679fde57b6",
+        "g": "f030975e2cf518be",
+        "name": "Store_latest_values",
+        "func": "let topic = msg.topic || \"\";\nlet value = Number(msg.payload);\n\nif (!topic || isNaN(value)) return null;\n\nlet parts = topic.split(\"/\"); \n// ProIT_IoT/<User>/<temp|humi>\n\nif (parts.length !== 3) return null;\n\nlet userKey = parts[1].trim().toLowerCase();\nlet metric  = parts[2].trim().toLowerCase();\n\nif (metric !== \"temp\" && metric !== \"humi\") return null;\n\nlet latest = flow.get(\"latest\") || {};\nlatest[userKey] = latest[userKey] || {};\nlatest[userKey][metric] = value;\n\nflow.set(\"latest\", latest);\n\nreturn null;\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 648.8125305175781,
+        "y": 159.81251525878906,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "aa187ad9ade8023a",
+        "type": "mqtt in",
+        "z": "c76a87679fde57b6",
+        "g": "ae66cb0464ba8816",
+        "name": "",
+        "topic": "ProIT_IoT/#",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "574829702fe9db62",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 330,
+        "y": 480,
+        "wires": [
+            [
+                "704b2cc119a34238"
+            ]
+        ]
+    },
+    {
+        "id": "704b2cc119a34238",
+        "type": "function",
+        "z": "c76a87679fde57b6",
+        "g": "ae66cb0464ba8816",
+        "name": "check_sensor_status",
+        "func": "// msg.topic example: ProIT_IoT/Ravi/temp  OR ProIT_IoT/Gargi/temp\nlet parts = (msg.topic || \"\").split(\"/\");\nif (parts.length < 3) return null;\n\nlet user = parts[1].trim();  // Ravi / Gargi etc\n\nlet lastSeenMap = flow.get(\"lastSeenMap\") || {};\nlastSeenMap[user] = Date.now();\n\nflow.set(\"lastSeenMap\", lastSeenMap);\n\nreturn null;\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 690,
+        "y": 480,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "d9c53c199a03b35b",
+        "type": "inject",
+        "z": "c76a87679fde57b6",
+        "g": "ae66cb0464ba8816",
+        "name": "check status timer",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "5",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 950,
+        "y": 480,
+        "wires": [
+            [
+                "d8b70471814f6e4f"
+            ]
+        ]
+    },
+    {
+        "id": "d8b70471814f6e4f",
+        "type": "function",
+        "z": "c76a87679fde57b6",
+        "g": "ae66cb0464ba8816",
+        "name": "check_offline",
+        "func": "let lastSeenMap = flow.get(\"lastSeenMap\") || {};\nlet now = Date.now();\n\nlet offlineUsers = [];\n\nfor (let user in lastSeenMap) {\n    let diffSec = (now - lastSeenMap[user]) / 1000;\n    if (diffSec > 30) {\n        offlineUsers.push(`${user} (${diffSec.toFixed(0)}s)`);\n    }\n}\n\n// If we have never seen any users yet\nif (Object.keys(lastSeenMap).length === 0) {\n    msg.payload = \"❌ No sensor data yet\";\n    return msg;\n}\n\nif (offlineUsers.length === 0) {\n    msg.payload = \"✅ All sensors ONLINE\";\n} else {\n    msg.payload = \"❌ OFFLINE: \" + offlineUsers.join(\", \");\n}\n\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1170,
+        "y": 480,
+        "wires": [
+            [
+                "9f5e498c0ffbe088"
+            ]
+        ]
+    },
+    {
+        "id": "9f5e498c0ffbe088",
+        "type": "ui_text",
+        "z": "c76a87679fde57b6",
+        "g": "ae66cb0464ba8816",
+        "group": "f236a47f63deaf71",
+        "order": 1,
+        "width": "6",
+        "height": "5",
+        "name": "",
+        "label": "Sensor Status",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#000000",
+        "x": 1390,
+        "y": 480,
+        "wires": []
+    },
+    {
+        "id": "574829702fe9db62",
+        "type": "mqtt-broker",
+        "name": "",
+        "broker": "broker.f4.htw-berlin.de",
+        "port": 1883,
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": 4,
+        "keepalive": 60,
+        "cleansession": true,
+        "autoUnsubscribe": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthRetain": "false",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closeRetain": "false",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willRetain": "false",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "126bd3092bcdf9f1",
+        "type": "telegram bot",
+        "botname": "Gargi_IoT_bot",
+        "usernames": "",
+        "chatids": "",
+        "baseapiurl": "",
+        "testenvironment": false,
+        "updatemode": "polling",
+        "pollinterval": 300,
+        "usesocks": false,
+        "sockshost": "",
+        "socksprotocol": "socks5",
+        "socksport": 6667,
+        "socksusername": "anonymous",
+        "sockspassword": "",
+        "bothost": "",
+        "botpath": "",
+        "localbothost": "0.0.0.0",
+        "localbotport": 8443,
+        "publicbotport": 8443,
+        "privatekey": "",
+        "certificate": "",
+        "useselfsignedcertificate": false,
+        "sslterminated": false,
+        "verboselogging": false
+    },
+    {
+        "id": "f236a47f63deaf71",
+        "type": "ui_group",
+        "name": "Sensor Data Group",
+        "tab": "afafaa2a1ea02298",
+        "order": 6,
+        "disp": true,
+        "width": 6,
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "afafaa2a1ea02298",
+        "type": "ui_tab",
+        "name": "this is tab",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "ea90dc798451d89b",
+        "type": "global-config",
+        "env": [],
+        "modules": {
+            "node-red-contrib-telegrambot": "17.0.3",
+            "node-red-dashboard": "3.6.6"
+        }
+    }
+]
