@@ -28,6 +28,7 @@ Publishing messages to a topic and subscribing to the topic
 import paho.mqtt.client as mqtt
 
 brokerURL = "mqtt.eclipseprojects.io"
+brokerURL = broker.f4.htw
 brokerPort = 1883 # port number for unencrypted connections
 
 def on_connect(client, userdata, flags, rc):

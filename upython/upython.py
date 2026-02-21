@@ -23,5 +23,6 @@ mqttclient.connect(brokerURL, brokerPort) #call connect function with URL and po
 mqttclient.publish("ProIT_IoT/Gargi","It works!")
 
 mqttclient.subscribe("ProIT_IoT/#")
-
+mqttclient.subscribe("ProIT_IoT/+/temp")
+mqttclient.subscribe("ProIT_IoT/+/humi")
 mqttclient.loop_start()
