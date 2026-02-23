@@ -6,9 +6,7 @@ humidity data from a DHT22 sensor,
 publishes it using MQTT, processes it in
 Node-RED, and sends the latest values to the user on
 Telegram.
-It also includes a dashboard feature to store today\'s data in
-memory and visualize minute-averaged charts for
-both temperature and humidity.
+It also includes a Sensor status monitor to identify whether sensors are actively publishing data or have stopped sending updates
 
 ## Components
 ### Hardware
